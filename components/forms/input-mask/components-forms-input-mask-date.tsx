@@ -1,13 +1,13 @@
 'use client';
 import PanelCodeHighlight from '@/components/panel-code-highlight';
 import React from 'react';
-import MaskedInput from 'react-text-mask';
+import MaskedInputWrapper from './MaskedInputWrapper';
 
 const ComponentsFormsInputMaskDate = () => {
     return (
         <PanelCodeHighlight
             title="Date"
-            codeHighlight={`import MaskedInput from 'react-text-mask';
+            codeHighlight={`import MaskedInputWrapper from './MaskedInputWrapper';
 
 <form>
     <fieldset className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -15,7 +15,7 @@ const ComponentsFormsInputMaskDate = () => {
             <label htmlFor="dateMask1" className="text-white-dark">
                 mask="'##/##/####'" (dd/mm/yyyy)
             </label>
-            <MaskedInput
+            <MaskedInputWrapper
                 id="dateMask1"
                 type="text"
                 placeholder="__/__/____"
@@ -27,7 +27,7 @@ const ComponentsFormsInputMaskDate = () => {
             <label htmlFor="dateMask2" className="text-white-dark">
                 mask="'##-##-####'" (99-99-9999)
             </label>
-            <MaskedInput
+            <MaskedInputWrapper
                 id="dateMask2"
                 type="text"
                 placeholder="__-__-____"
@@ -39,7 +39,7 @@ const ComponentsFormsInputMaskDate = () => {
             <label htmlFor="dateMask3" className="text-white-dark">
                 mask="'## December, ####'" (99 December, 9999)
             </label>
-            <MaskedInput
+            <MaskedInputWrapper
                 id="dateMask3"
                 type="text"
                 placeholder="__ December, ____"
@@ -58,7 +58,7 @@ const ComponentsFormsInputMaskDate = () => {
                             <label htmlFor="dateMask1" className="text-white-dark">
                                 {`mask="'##/##/####'" (dd/mm/yyyy)`}
                             </label>
-                            <MaskedInput
+                            <MaskedInputWrapper
                                 id="dateMask1"
                                 type="text"
                                 placeholder="__/__/____"
@@ -70,7 +70,7 @@ const ComponentsFormsInputMaskDate = () => {
                             <label htmlFor="dateMask2" className="text-white-dark">
                                 {`mask="'##-##-####'" (99-99-9999)`}
                             </label>
-                            <MaskedInput
+                            <MaskedInputWrapper
                                 id="dateMask2"
                                 type="text"
                                 placeholder="__-__-____"
@@ -82,7 +82,7 @@ const ComponentsFormsInputMaskDate = () => {
                             <label htmlFor="dateMask3" className="text-white-dark">
                                 {`mask="'## December, ####'" (99 December, 9999)`}
                             </label>
-                            <MaskedInput
+                            <MaskedInputWrapper
                                 id="dateMask3"
                                 type="text"
                                 placeholder="__ December, ____"

@@ -2,7 +2,7 @@
 import IconCopy from '@/components/icon/icon-copy';
 import PanelCodeHighlight from '@/components/panel-code-highlight';
 import React from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Swal from 'sweetalert2';
 
 const ComponentsFormsClipboardAdvanced = () => {
@@ -20,6 +20,13 @@ const ComponentsFormsClipboardAdvanced = () => {
             padding: '10px 20px',
         });
     };
+
+    const handleCopy = (text: string) => {
+        navigator.clipboard.writeText(text).then(() => {
+            showMessage();
+        });
+    };
+
     return (
         <PanelCodeHighlight
             title="Copy Hidden Text (Advanced)"
@@ -35,33 +42,15 @@ const message4 = 'http://www.admin-dashboard.com/code';
     <span className="absolute opacity-0" id="copyHiddenCode">
         2291
     </span>
-    <div className="sm:flex space-y-2 sm:space-y-0 sm:space-x-2 rtl:space-x-reverse mt-5">
-        <CopyToClipboard
-            text={message4}
-            onCopy={(text, result) => {
-                if (result) {
-                    showMessage();
-                }
-            }}
-        >
-            <button type="button" className="btn btn-primary">
-                <svg>...</svg>
-                Copy Link
-            </button>
-        </CopyToClipboard>
-        <CopyToClipboard
-            text={'2291'}
-            onCopy={(text, result) => {
-                if (result) {
-                    showMessage();
-                }
-            }}
-        >
-            <button type="button" className="btn btn-dark ">
-                <svg>...</svg>
-                Copy Hidden Code
-            </button>
-        </CopyToClipboard>
+    <div className="mt-5 space-y-2 sm:flex sm:space-y-0 sm:space-x-2 rtl:space-x-reverse">
+        <button type="button" className="btn btn-primary" onClick={() => handleCopy(message4)}>
+            <svg>...</svg>
+            Copy Link
+        </button>
+        <button type="button" className="btn btn-dark" onClick={() => handleCopy('2291')}>
+            <svg>...</svg>
+            Copy Hidden Code
+        </button>
     </div>
 </form>`}
         >
@@ -76,32 +65,14 @@ const message4 = 'http://www.admin-dashboard.com/code';
                             2291
                         </span>
                         <div className="mt-5 space-y-2 rtl:space-x-reverse sm:flex sm:space-x-2 sm:space-y-0">
-                            <CopyToClipboard
-                                text={message4}
-                                onCopy={(text, result) => {
-                                    if (result) {
-                                        showMessage();
-                                    }
-                                }}
-                            >
-                                <button type="button" className="btn btn-primary">
-                                    <IconCopy className="ltr:mr-2 rtl:ml-2" />
-                                    Copy Link
-                                </button>
-                            </CopyToClipboard>
-                            <CopyToClipboard
-                                text={'2291'}
-                                onCopy={(text, result) => {
-                                    if (result) {
-                                        showMessage();
-                                    }
-                                }}
-                            >
-                                <button type="button" className="btn btn-dark ">
-                                    <IconCopy className="ltr:mr-2 rtl:ml-2" />
-                                    Copy Hidden Code
-                                </button>
-                            </CopyToClipboard>
+                            <button type="button" className="btn btn-primary" onClick={() => handleCopy(message4)}>
+                                <IconCopy className="ltr:mr-2 rtl:ml-2" />
+                                Copy Link
+                            </button>
+                            <button type="button" className="btn btn-dark" onClick={() => handleCopy('2291')}>
+                                <IconCopy className="ltr:mr-2 rtl:ml-2" />
+                                Copy Hidden Code
+                            </button>
                         </div>
                     </form>
                 </div>

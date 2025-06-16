@@ -3,7 +3,6 @@ import IconCopy from '@/components/icon/icon-copy';
 import IconPencil from '@/components/icon/icon-pencil';
 import PanelCodeHighlight from '@/components/panel-code-highlight';
 import React, { useState } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import Swal from 'sweetalert2';
 
 const ComponentsFormsClipboardInput = () => {
@@ -22,42 +21,36 @@ const ComponentsFormsClipboardInput = () => {
         });
     };
 
+    const handleCopy = (text: string) => {
+        navigator.clipboard.writeText(text).then(() => {
+            showMessage();
+        });
+    };
+
+    const handleCut = (text: string) => {
+        navigator.clipboard.writeText(text).then(() => {
+            setMessage1('');
+            showMessage('Cut successfully.');
+        });
+    };
+
     return (
         <PanelCodeHighlight
             title="Copy from input"
             codeHighlight={`import { useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 const [message1, setMessage1] = useState<any>('http://www.admin-dashboard.com');
 
 <form>
     <input type="text" value={message1} className="form-input" onChange={(e) => setMessage1(e.target.value)} />
     <div className="sm:flex space-y-2 sm:space-y-0 sm:space-x-2 rtl:space-x-reverse mt-5">
-        <CopyToClipboard
-            text={message1}
-            onCopy={(text, result) => {
-                if (result) {
-                    showMessage();
-                }
-            }}
-        >
-            <button type="button" className="btn btn-primary">
-                <svg>...</svg>
-                Copy from Input
-            </button>
-        </CopyToClipboard>
-        <CopyToClipboard
-            text={message1}
-            onCopy={(text, result) => {
-                if (result) {
-                    showMessage('Cut successfully.');
-                }
-            }}
-        >
-            <button type="button" className="btn btn-dark" value={message1} onClick={() => setMessage1('')}>
-                <svg>...</svg>
-                Cut from Input
-            </button>
-        </CopyToClipboard>
+        <button type="button" className="btn btn-primary" onClick={() => handleCopy(message1)}>
+            <svg>...</svg>
+            Copy from Input
+        </button>
+        <button type="button" className="btn btn-dark" onClick={() => handleCut(message1)}>
+            <svg>...</svg>
+            Cut from Input
+        </button>
     </div>
 </form>`}
         >
@@ -66,32 +59,14 @@ const [message1, setMessage1] = useState<any>('http://www.admin-dashboard.com');
                     <form>
                         <input type="text" value={message1} className="form-input" onChange={(e) => setMessage1(e.target.value)} />
                         <div className="mt-5 space-y-2 rtl:space-x-reverse sm:flex sm:space-x-2 sm:space-y-0">
-                            <CopyToClipboard
-                                text={message1}
-                                onCopy={(text, result) => {
-                                    if (result) {
-                                        showMessage();
-                                    }
-                                }}
-                            >
-                                <button type="button" className="btn btn-primary">
-                                    <IconCopy className="ltr:mr-2 rtl:ml-2" />
-                                    Copy from Input
-                                </button>
-                            </CopyToClipboard>
-                            <CopyToClipboard
-                                text={message1}
-                                onCopy={(text, result) => {
-                                    if (result) {
-                                        showMessage('Cut successfully.');
-                                    }
-                                }}
-                            >
-                                <button type="button" className="btn btn-dark" value={message1} onClick={() => setMessage1('')}>
-                                    <IconPencil className="ltr:mr-2 rtl:ml-2" />
-                                    Cut from Input
-                                </button>
-                            </CopyToClipboard>
+                            <button type="button" className="btn btn-primary" onClick={() => handleCopy(message1)}>
+                                <IconCopy className="ltr:mr-2 rtl:ml-2" />
+                                Copy from Input
+                            </button>
+                            <button type="button" className="btn btn-dark" onClick={() => handleCut(message1)}>
+                                <IconPencil className="ltr:mr-2 rtl:ml-2" />
+                                Cut from Input
+                            </button>
                         </div>
                     </form>
                 </div>

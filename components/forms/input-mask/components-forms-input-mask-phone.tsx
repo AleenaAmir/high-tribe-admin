@@ -1,20 +1,20 @@
 'use client';
 import PanelCodeHighlight from '@/components/panel-code-highlight';
 import React from 'react';
-import MaskedInput from 'react-text-mask';
+import MaskedInputWrapper from './MaskedInputWrapper';
 
 const ComponentsFormsInputMaskPhone = () => {
     return (
         <PanelCodeHighlight
             title="Phone"
-            codeHighlight={`import MaskedInput from 'react-text-mask';
+            codeHighlight={`import MaskedInputWrapper from './MaskedInputWrapper';
 
 <form>
     <fieldset>
         <label htmlFor="phoneMask" className="text-white-dark">
             mask="'(###) ###-####'" ((999) 999-9999)
         </label>
-        <MaskedInput
+        <MaskedInputWrapper
             id="phoneMask"
             type="text"
             placeholder="(___) ___-____"
@@ -30,7 +30,7 @@ const ComponentsFormsInputMaskPhone = () => {
                         <label htmlFor="phoneMask" className="text-white-dark">
                             {`mask="'(###) ###-####'" ((999) 999-9999)`}
                         </label>
-                        <MaskedInput
+                        <MaskedInputWrapper
                             id="phoneMask"
                             type="text"
                             placeholder="(___) ___-____"

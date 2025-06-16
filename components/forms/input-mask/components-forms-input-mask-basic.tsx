@@ -1,13 +1,13 @@
 'use client';
 import PanelCodeHighlight from '@/components/panel-code-highlight';
 import React from 'react';
-import MaskedInput from 'react-text-mask';
+import MaskedInputWrapper from './MaskedInputWrapper';
 
 const ComponentsFormsInputMaskBasic = () => {
     return (
         <PanelCodeHighlight
             title="Static Mask Basic"
-            codeHighlight={`import MaskedInput from 'react-text-mask';
+            codeHighlight={`import MaskedInputWrapper from './MaskedInputWrapper';
 
 <form>
     <fieldset className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -15,7 +15,7 @@ const ComponentsFormsInputMaskBasic = () => {
             <label htmlFor="staticMask1" className="text-white-dark">
                 mask="'##-#######'" (99-9999999)
             </label>
-            <MaskedInput
+            <MaskedInputWrapper
                 id="staticMask1"
                 type="text"
                 placeholder="__-_______"
@@ -27,7 +27,7 @@ const ComponentsFormsInputMaskBasic = () => {
             <label htmlFor="staticMask2" className="text-white-dark">
                 mask="'AA-####'" (aa-9999)
             </label>
-            <MaskedInput id="staticMask2" type="text" placeholder="__-____" className="form-input" mask={[/[a-z]/, /[a-z]/, '-', /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/]} />
+            <MaskedInputWrapper id="staticMask2" type="text" placeholder="__-____" className="form-input" mask={[/[a-z]/, /[a-z]/, '-', /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/]} />
         </div>
     </fieldset>
 </form>`}
@@ -42,7 +42,7 @@ const ComponentsFormsInputMaskBasic = () => {
                             <label htmlFor="staticMask1" className="text-white-dark">
                                 {`mask="'##-#######'" (99-9999999)`}
                             </label>
-                            <MaskedInput
+                            <MaskedInputWrapper
                                 id="staticMask1"
                                 type="text"
                                 placeholder="__-_______"
@@ -54,7 +54,7 @@ const ComponentsFormsInputMaskBasic = () => {
                             <label htmlFor="staticMask2" className="text-white-dark">
                                 {`mask="'AA-####'" (aa-9999)`}
                             </label>
-                            <MaskedInput id="staticMask2" type="text" placeholder="__-____" className="form-input" mask={[/[a-z]/, /[a-z]/, '-', /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/]} />
+                            <MaskedInputWrapper id="staticMask2" type="text" placeholder="__-____" className="form-input" mask={[/[a-z]/, /[a-z]/, '-', /[0-9]/, /[0-9]/, /[0-9]/, /[0-9]/]} />
                         </div>
                     </fieldset>
                 </form>

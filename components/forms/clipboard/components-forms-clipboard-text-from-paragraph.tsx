@@ -2,7 +2,6 @@
 import IconCopy from '@/components/icon/icon-copy';
 import PanelCodeHighlight from '@/components/panel-code-highlight';
 import React from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import Swal from 'sweetalert2';
 
 const ComponentsFormsClipboardTextFromParagraph = () => {
@@ -21,11 +20,16 @@ const ComponentsFormsClipboardTextFromParagraph = () => {
         });
     };
 
+    const handleCopy = (text: string) => {
+        navigator.clipboard.writeText(text).then(() => {
+            showMessage();
+        });
+    };
+
     return (
         <PanelCodeHighlight
             title="Copy Text from Paragraph"
             codeHighlight={`import { useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 const message3 = '22991';
 
 <form>
@@ -38,19 +42,10 @@ const message3 = '22991';
     </p>
     <p className="font-semibold">Please do not share it to anyone</p>
     <div className="sm:flex space-y-2 sm:space-y-0 sm:space-x-2 rtl:space-x-reverse mt-5">
-        <CopyToClipboard
-            text={message3}
-            onCopy={(text, result) => {
-                if (result) {
-                    showMessage();
-                }
-            }}
-        >
-            <button type="button" className="btn btn-primary" data-clipboard-target="#copyOTP">
-                <svg>...</svg>
-                Copy from Paragraph
-            </button>
-        </CopyToClipboard>
+        <button type="button" className="btn btn-primary" onClick={() => handleCopy(message3)}>
+            <svg>...</svg>
+            Copy from Paragraph
+        </button>
     </div>
 </form>`}
         >
@@ -66,19 +61,10 @@ const message3 = '22991';
                         </p>
                         <p className="font-semibold">Please do not share it to anyone</p>
                         <div className="mt-5 space-y-2 rtl:space-x-reverse sm:flex sm:space-x-2 sm:space-y-0">
-                            <CopyToClipboard
-                                text={message3}
-                                onCopy={(text, result) => {
-                                    if (result) {
-                                        showMessage();
-                                    }
-                                }}
-                            >
-                                <button type="button" className="btn btn-primary" data-clipboard-target="#copyOTP">
-                                    <IconCopy className="ltr:mr-2 rtl:ml-2" />
-                                    Copy from Paragraph
-                                </button>
-                            </CopyToClipboard>
+                            <button type="button" className="btn btn-primary" onClick={() => handleCopy(message3)}>
+                                <IconCopy className="ltr:mr-2 rtl:ml-2" />
+                                Copy from Paragraph
+                            </button>
                         </div>
                     </form>
                 </div>

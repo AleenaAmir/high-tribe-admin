@@ -1,20 +1,20 @@
 'use client';
 import PanelCodeHighlight from '@/components/panel-code-highlight';
 import React from 'react';
-import MaskedInput from 'react-text-mask';
+import MaskedInputWrapper from './MaskedInputWrapper';
 
 const ComponentsFormsInputMaskCurrency = () => {
     return (
         <PanelCodeHighlight
             title="Currency"
-            codeHighlight={`import MaskedInput from 'react-text-mask';
+            codeHighlight={`import MaskedInputWrapper from './MaskedInputWrapper';
 
 <form>
     <fieldset>
         <label htmlFor="currencyMask" className="text-white-dark">
             $999,9999,999.99
         </label>
-        <MaskedInput
+        <MaskedInputWrapper
             id="currencyMask"
             type="text"
             placeholder="$___,____,___.__"
@@ -30,7 +30,7 @@ const ComponentsFormsInputMaskCurrency = () => {
                         <label htmlFor="currencyMask" className="text-white-dark">
                             $999,9999,999.99
                         </label>
-                        <MaskedInput
+                        <MaskedInputWrapper
                             id="currencyMask"
                             type="text"
                             placeholder="$___,____,___.__"

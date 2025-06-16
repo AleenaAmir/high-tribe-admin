@@ -3,7 +3,6 @@ import IconCopy from '@/components/icon/icon-copy';
 import IconPencil from '@/components/icon/icon-pencil';
 import PanelCodeHighlight from '@/components/panel-code-highlight';
 import React, { useState } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import Swal from 'sweetalert2';
 
 const ComponentsFormsClipboardTextarea = () => {
@@ -21,42 +20,37 @@ const ComponentsFormsClipboardTextarea = () => {
             padding: '10px 20px',
         });
     };
+
+    const handleCopy = (text: string) => {
+        navigator.clipboard.writeText(text).then(() => {
+            showMessage();
+        });
+    };
+
+    const handleCut = (text: string) => {
+        navigator.clipboard.writeText(text).then(() => {
+            setMessage2('');
+            showMessage('Cut successfully.');
+        });
+    };
+
     return (
         <PanelCodeHighlight
             title="Copy form Textarea"
             codeHighlight={`import { useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 const [message2, setMessage2] = useState<any>('Lorem ipsum dolor sit amet, consectetur adipiscing elit...');
 
 <form>
     <textarea rows={3} wrap="soft" className="form-textarea" value={message2} id="message2" onChange={(e) => setMessage2(e.target.value)}></textarea>
     <div className="sm:flex space-y-2 sm:space-y-0 sm:space-x-2 rtl:space-x-reverse mt-5">
-        <CopyToClipboard
-            text={message2}
-            onCopy={(text, result) => {
-                if (result) {
-                    showMessage();
-                }
-            }}
-        >
-            <button type="button" className="btn btn-primary" data-clipboard-target="#message2">
-                <svg>...</svg>
-                Copy from Input
-            </button>
-        </CopyToClipboard>
-        <CopyToClipboard
-            text={message2}
-            onCopy={(text, result) => {
-                if (result) {
-                    showMessage('Cut successfully.');
-                }
-            }}
-        >
-            <button type="button" className="btn btn-dark " onClick={() => setMessage2('')}>
-                <svg>...</svg>
-                Cut from Input
-            </button>
-        </CopyToClipboard>
+        <button type="button" className="btn btn-primary" onClick={() => handleCopy(message2)}>
+            <svg>...</svg>
+            Copy from Input
+        </button>
+        <button type="button" className="btn btn-dark" onClick={() => handleCut(message2)}>
+            <svg>...</svg>
+            Cut from Input
+        </button>
     </div>
 </form>`}
         >
@@ -65,32 +59,14 @@ const [message2, setMessage2] = useState<any>('Lorem ipsum dolor sit amet, conse
                     <form>
                         <textarea rows={3} wrap="soft" className="form-textarea" value={message2} id="message2" onChange={(e) => setMessage2(e.target.value)}></textarea>
                         <div className="mt-5 space-y-2 rtl:space-x-reverse sm:flex sm:space-x-2 sm:space-y-0">
-                            <CopyToClipboard
-                                text={message2}
-                                onCopy={(text, result) => {
-                                    if (result) {
-                                        showMessage();
-                                    }
-                                }}
-                            >
-                                <button type="button" className="btn btn-primary" data-clipboard-target="#message2">
-                                    <IconCopy className="ltr:mr-2 rtl:ml-2" />
-                                    Copy from Input
-                                </button>
-                            </CopyToClipboard>
-                            <CopyToClipboard
-                                text={message2}
-                                onCopy={(text, result) => {
-                                    if (result) {
-                                        showMessage('Cut successfully.');
-                                    }
-                                }}
-                            >
-                                <button type="button" className="btn btn-dark " onClick={() => setMessage2('')}>
-                                    <IconPencil className="ltr:mr-2 rtl:ml-2" />
-                                    Cut from Input
-                                </button>
-                            </CopyToClipboard>
+                            <button type="button" className="btn btn-primary" onClick={() => handleCopy(message2)}>
+                                <IconCopy className="ltr:mr-2 rtl:ml-2" />
+                                Copy from Input
+                            </button>
+                            <button type="button" className="btn btn-dark" onClick={() => handleCut(message2)}>
+                                <IconPencil className="ltr:mr-2 rtl:ml-2" />
+                                Cut from Input
+                            </button>
                         </div>
                     </form>
                 </div>

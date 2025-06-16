@@ -1,20 +1,20 @@
 'use client';
 import PanelCodeHighlight from '@/components/panel-code-highlight';
 import React from 'react';
-import MaskedInput from 'react-text-mask';
+import MaskedInputWrapper from './MaskedInputWrapper';
 
 const ComponentsFormsInputMaskIp = () => {
     return (
         <PanelCodeHighlight
             title="IP"
-            codeHighlight={`import MaskedInput from 'react-text-mask';
+            codeHighlight={`import MaskedInputWrapper from './MaskedInputWrapper';
 
 <form>
     <fieldset>
         <label htmlFor="ipMask" className="text-white-dark">
             mask="'###.###.###.###'" (192.198.1.1)
         </label>
-        <MaskedInput
+        <MaskedInputWrapper
             id="ipMask"
             type="text"
             placeholder="___.___.___.___"
@@ -30,7 +30,7 @@ const ComponentsFormsInputMaskIp = () => {
                         <label htmlFor="ipMask" className="text-white-dark">
                             {`mask="'###.###.###.###'" (192.198.1.1)`}
                         </label>
-                        <MaskedInput
+                        <MaskedInputWrapper
                             id="ipMask"
                             type="text"
                             placeholder="___.___.___.___"

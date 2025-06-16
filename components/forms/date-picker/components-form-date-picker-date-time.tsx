@@ -3,33 +3,31 @@ import PanelCodeHighlight from '@/components/panel-code-highlight';
 import { IRootState } from '@/store';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import Flatpickr from 'react-flatpickr';
-import 'flatpickr/dist/flatpickr.css';
+import DatePicker from './DatePicker';
 
 const ComponentsFormDatePickerDateTime = () => {
     const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl';
-    const [date2, setDate2] = useState<any>('2022-07-05 12:00');
+    const [date2, setDate2] = useState<string>('2022-07-05 12:00');
     return (
         <PanelCodeHighlight
             title="Date Time"
             codeHighlight={`import { useState } from 'react';
-import Flatpickr from 'react-flatpickr';
-import 'flatpickr/dist/flatpickr.css';
+import DatePicker from './DatePicker';
 import { useSelector } from 'react-redux';
 
 const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl';
-const [date2, setDate2] = useState<any>('2022-07-05 12:00');
+const [date2, setDate2] = useState<string>('2022-07-05 12:00');
 
-<Flatpickr
+<DatePicker
     data-enable-time
     options={{
         enableTime: true,
         dateFormat: 'Y-m-d H:i',
         position: isRtl ? 'auto right' : 'auto left',
     }}
-    defaultValue={date2}
+    value={date2}
     className="form-input"
-    onChange={(date2) => setDate2(date2)}
+    onChange={(date) => setDate2(date[0].toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).replace(',', ''))}
 />`}
         >
             <div className="mb-2.5">
@@ -38,16 +36,16 @@ const [date2, setDate2] = useState<any>('2022-07-05 12:00');
                 option to enable time support
             </div>
             <div className="mb-5">
-                <Flatpickr
+                <DatePicker
                     data-enable-time
                     options={{
                         enableTime: true,
                         dateFormat: 'Y-m-d H:i',
                         position: isRtl ? 'auto right' : 'auto left',
                     }}
-                    defaultValue={date2}
+                    value={date2}
                     className="form-input"
-                    onChange={(date2) => setDate2(date2)}
+                    onChange={(date) => setDate2(date[0].toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).replace(',', ''))}
                 />
             </div>
         </PanelCodeHighlight>
