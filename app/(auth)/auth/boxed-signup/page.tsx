@@ -81,7 +81,7 @@ const BoxedSignUp = () => {
                             </div>
                             <div className="text-center dark:text-white">
                                 Already have an account ?&nbsp;
-                                <Link href="/signin" className="underline uppercase transition text-primary hover:text-black dark:hover:text-white">
+                                <Link href="/signup" className="underline uppercase transition text-primary hover:text-black dark:hover:text-white">
                                     SIGN IN
                                 </Link>
                             </div>
