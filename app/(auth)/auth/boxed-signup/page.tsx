@@ -16,7 +16,7 @@ const BoxedSignUp = () => {
     return (
         <div>
             <div className="absolute inset-0">
-                <img src="/assets/images/auth/bg-gradient.png" alt="image" className="h-full w-full object-cover" />
+                <img src="/assets/images/auth/bg-gradient.png" alt="image" className="object-cover w-full h-full" />
             </div>
 
             <div className="relative flex min-h-screen items-center justify-center bg-[url(/assets/images/auth/map.png)] bg-cover bg-center bg-no-repeat px-6 py-10 dark:bg-[#060818] sm:px-16">
@@ -35,16 +35,16 @@ const BoxedSignUp = () => {
                                 <p className="text-base font-bold leading-normal text-white-dark">Enter your email and password to register</p>
                             </div>
                             <ComponentsAuthRegisterForm />
-                            <div className="relative my-7 text-center md:mb-9">
-                                <span className="absolute inset-x-0 top-1/2 h-px w-full -translate-y-1/2 bg-white-light dark:bg-white-dark"></span>
-                                <span className="relative bg-white px-2 font-bold uppercase text-white-dark dark:bg-dark dark:text-white-light">or</span>
+                            <div className="relative text-center my-7 md:mb-9">
+                                <span className="absolute inset-x-0 w-full h-px -translate-y-1/2 top-1/2 bg-white-light dark:bg-white-dark"></span>
+                                <span className="relative px-2 font-bold uppercase bg-white text-white-dark dark:bg-dark dark:text-white-light">or</span>
                             </div>
                             <div className="mb-10 md:mb-[60px]">
                                 <ul className="flex justify-center gap-3.5 text-white">
                                     <li>
                                         <Link
                                             href="#"
-                                            className="inline-flex h-8 w-8 items-center justify-center rounded-full p-0 transition hover:scale-110"
+                                            className="inline-flex items-center justify-center w-8 h-8 p-0 transition rounded-full hover:scale-110"
                                             style={{ background: 'linear-gradient(135deg, rgba(239, 18, 98, 1) 0%, rgba(67, 97, 238, 1) 100%)' }}
                                         >
                                             <IconInstagram />
@@ -53,7 +53,7 @@ const BoxedSignUp = () => {
                                     <li>
                                         <Link
                                             href="#"
-                                            className="inline-flex h-8 w-8 items-center justify-center rounded-full p-0 transition hover:scale-110"
+                                            className="inline-flex items-center justify-center w-8 h-8 p-0 transition rounded-full hover:scale-110"
                                             style={{ background: 'linear-gradient(135deg, rgba(239, 18, 98, 1) 0%, rgba(67, 97, 238, 1) 100%)' }}
                                         >
                                             <IconFacebookCircle />
@@ -62,7 +62,7 @@ const BoxedSignUp = () => {
                                     <li>
                                         <Link
                                             href="#"
-                                            className="inline-flex h-8 w-8 items-center justify-center rounded-full p-0 transition hover:scale-110"
+                                            className="inline-flex items-center justify-center w-8 h-8 p-0 transition rounded-full hover:scale-110"
                                             style={{ background: 'linear-gradient(135deg, rgba(239, 18, 98, 1) 0%, rgba(67, 97, 238, 1) 100%)' }}
                                         >
                                             <IconTwitter fill={true} />
@@ -71,7 +71,7 @@ const BoxedSignUp = () => {
                                     <li>
                                         <Link
                                             href="#"
-                                            className="inline-flex h-8 w-8 items-center justify-center rounded-full p-0 transition hover:scale-110"
+                                            className="inline-flex items-center justify-center w-8 h-8 p-0 transition rounded-full hover:scale-110"
                                             style={{ background: 'linear-gradient(135deg, rgba(239, 18, 98, 1) 0%, rgba(67, 97, 238, 1) 100%)' }}
                                         >
                                             <IconGoogle />
@@ -81,7 +81,7 @@ const BoxedSignUp = () => {
                             </div>
                             <div className="text-center dark:text-white">
                                 Already have an account ?&nbsp;
-                                <Link href="/auth/boxed-signin" className="uppercase text-primary underline transition hover:text-black dark:hover:text-white">
+                                <Link href="/signin" className="underline uppercase transition text-primary hover:text-black dark:hover:text-white">
                                     SIGN IN
                                 </Link>
                             </div>

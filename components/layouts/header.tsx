@@ -149,8 +149,8 @@ const Header = () => {
         <header className={`z-40 ${themeConfig.semidark && themeConfig.menu === 'horizontal' ? 'dark' : ''}`}>
             <div className="shadow-sm">
                 <div className="relative flex w-full items-center bg-white px-5 py-2.5 dark:bg-black">
-                    <div className="horizontal-logo flex items-center justify-between lg:hidden ltr:mr-2 rtl:ml-2">
-                        <Link href="/" className="main-logo flex shrink-0 items-center">
+                    <div className="flex items-center justify-between horizontal-logo lg:hidden ltr:mr-2 rtl:ml-2">
+                        <Link href="/" className="flex items-center main-logo shrink-0">
                             <img className="inline w-8 dark:hidden ltr:-ml-1 rtl:-mr-1" src="/assets/images/logoblack.svg" alt="logo" />
                             <img className="hidden w-8 dark:inline ltr:-ml-1 rtl:-mr-1" src="/assets/images/logo.svg" alt="logo" />
                             <span className="hidden align-middle text-2xl  font-semibold  transition-all duration-300 dark:text-white-light md:inline ltr:ml-1.5 rtl:mr-1.5">High Tribe</span>
@@ -160,24 +160,24 @@ const Header = () => {
                             className="collapse-icon flex flex-none rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:text-[#d0d2d6] dark:hover:bg-dark/60 dark:hover:text-primary lg:hidden ltr:ml-2 rtl:mr-2"
                             onClick={() => dispatch(toggleSidebar())}
                         >
-                            <IconMenu className="h-5 w-5" />
+                            <IconMenu className="w-5 h-5" />
                         </button>
                     </div>
 
                     <div className="hidden sm:block ltr:mr-2 rtl:ml-2">
                         <ul className="flex items-center space-x-2 dark:text-[#d0d2d6] rtl:space-x-reverse">
                             <li>
-                                <Link href="/apps/calendar" className="block rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60">
+                                <Link href="/apps/calendar" className="block p-2 rounded-full bg-white-light/40 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60">
                                     <IconCalendar />
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/apps/todolist" className="block rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60">
+                                <Link href="/apps/todolist" className="block p-2 rounded-full bg-white-light/40 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60">
                                     <IconEdit />
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/apps/chat" className="block rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60">
+                                <Link href="/apps/chat" className="block p-2 rounded-full bg-white-light/40 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60">
                                     <IconChatNotification />
                                 </Link>
                             </li>
@@ -192,13 +192,13 @@ const Header = () => {
                                 <div className="relative">
                                     <input
                                         type="text"
-                                        className="peer form-input bg-gray-100 placeholder:tracking-widest sm:bg-transparent ltr:pl-9 ltr:pr-9 ltr:sm:pr-4 rtl:pl-9 rtl:pr-9 rtl:sm:pl-4"
+                                        className="bg-gray-100 peer form-input placeholder:tracking-widest sm:bg-transparent ltr:pl-9 ltr:pr-9 ltr:sm:pr-4 rtl:pl-9 rtl:pr-9 rtl:sm:pl-4"
                                         placeholder="Search..."
                                     />
-                                    <button type="button" className="absolute inset-0 h-9 w-9 appearance-none peer-focus:text-primary ltr:right-auto rtl:left-auto">
+                                    <button type="button" className="absolute inset-0 appearance-none h-9 w-9 peer-focus:text-primary ltr:right-auto rtl:left-auto">
                                         <IconSearch className="mx-auto" />
                                     </button>
-                                    <button type="button" className="absolute top-1/2 block -translate-y-1/2 hover:opacity-80 sm:hidden ltr:right-2 rtl:left-2" onClick={() => setSearch(false)}>
+                                    <button type="button" className="absolute block -translate-y-1/2 top-1/2 hover:opacity-80 sm:hidden ltr:right-2 rtl:left-2" onClick={() => setSearch(false)}>
                                         <IconXCircle />
                                     </button>
                                 </div>
@@ -206,7 +206,7 @@ const Header = () => {
                             <button
                                 type="button"
                                 onClick={() => setSearch(!search)}
-                                className="search_btn rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 dark:bg-dark/40 dark:hover:bg-dark/60 sm:hidden"
+                                className="p-2 rounded-full search_btn bg-white-light/40 hover:bg-white-light/90 dark:bg-dark/40 dark:hover:bg-dark/60 sm:hidden"
                             >
                                 <IconSearch className="mx-auto h-4.5 w-4.5 dark:text-[#d0d2d6]" />
                             </button>
@@ -253,7 +253,7 @@ const Header = () => {
                                 offset={[0, 8]}
                                 placement={`${isRtl ? 'bottom-start' : 'bottom-end'}`}
                                 btnClassName="block p-2 rounded-full bg-white-light/40 dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60"
-                                button={i18n.language && <img className="h-5 w-5 rounded-full object-cover" src={`/assets/images/flags/${i18n.language.toUpperCase()}.svg`} alt="flag" />}
+                                button={i18n.language && <img className="object-cover w-5 h-5 rounded-full" src={`/assets/images/flags/${i18n.language.toUpperCase()}.svg`} alt="flag" />}
                             >
                                 <ul className="grid w-[280px] grid-cols-2 gap-2 !px-2 font-semibold text-dark dark:text-white-dark dark:text-white-light/90">
                                     {themeConfig.languageList.map((item: any) => {
@@ -267,7 +267,7 @@ const Header = () => {
                                                         setLocale(item.code);
                                                     }}
                                                 >
-                                                    <img src={`/assets/images/flags/${item.code.toUpperCase()}.svg`} alt="flag" className="h-5 w-5 rounded-full object-cover" />
+                                                    <img src={`/assets/images/flags/${item.code.toUpperCase()}.svg`} alt="flag" className="object-cover w-5 h-5 rounded-full" />
                                                     <span className="ltr:ml-3 rtl:mr-3">{item.name}</span>
                                                 </button>
                                             </li>
@@ -301,7 +301,7 @@ const Header = () => {
                                                                 <div className="text-sm font-semibold dark:text-white-light/90">{message.title}</div>
                                                                 <div>{message.message}</div>
                                                             </span>
-                                                            <span className="whitespace-pre rounded bg-white-dark/20 px-1 font-semibold text-dark/60 dark:text-white-dark ltr:ml-auto ltr:mr-2 rtl:ml-2 rtl:mr-auto">
+                                                            <span className="px-1 font-semibold whitespace-pre rounded bg-white-dark/20 text-dark/60 dark:text-white-dark ltr:ml-auto ltr:mr-2 rtl:ml-2 rtl:mr-auto">
                                                                 {message.time}
                                                             </span>
                                                             <button type="button" className="text-neutral-300 hover:text-danger" onClick={() => removeMessage(message.id)}>
@@ -311,7 +311,7 @@ const Header = () => {
                                                     );
                                                 })}
                                             </li>
-                                            <li className="mt-5 border-t border-white-light text-center dark:border-white/10">
+                                            <li className="mt-5 text-center border-t border-white-light dark:border-white/10">
                                                 <button type="button" className="group !h-[48px] justify-center !py-4 font-semibold text-primary dark:text-gray-400">
                                                     <span className="group-hover:underline ltr:mr-1 rtl:ml-1">VIEW ALL ACTIVITIES</span>
                                                     <IconArrowLeft className="transition duration-300 group-hover:translate-x-1 ltr:ml-1 rtl:mr-1" />
@@ -321,8 +321,8 @@ const Header = () => {
                                     ) : (
                                         <li className="mb-5" onClick={(e) => e.stopPropagation()}>
                                             <button type="button" className="!grid min-h-[200px] place-content-center text-lg hover:!bg-transparent">
-                                                <div className="mx-auto mb-4 rounded-full text-white ring-4 ring-primary/30">
-                                                    <IconInfoCircle fill={true} className="h-10 w-10" />
+                                                <div className="mx-auto mb-4 text-white rounded-full ring-4 ring-primary/30">
+                                                    <IconInfoCircle fill={true} className="w-10 h-10" />
                                                 </div>
                                                 No data available.
                                             </button>
@@ -339,7 +339,7 @@ const Header = () => {
                                 button={
                                     <span>
                                         <IconBellBing />
-                                        <span className="absolute top-0 flex h-3 w-3 ltr:right-0 rtl:left-0">
+                                        <span className="absolute top-0 flex w-3 h-3 ltr:right-0 rtl:left-0">
                                             <span className="absolute -top-[3px] inline-flex h-full w-full animate-ping rounded-full bg-success/50 opacity-75 ltr:-left-[3px] rtl:-right-[3px]"></span>
                                             <span className="relative inline-flex h-[6px] w-[6px] rounded-full bg-success"></span>
                                         </span>
@@ -358,10 +358,10 @@ const Header = () => {
                                             {notifications.map((notification) => {
                                                 return (
                                                     <li key={notification.id} className="dark:text-white-light/90" onClick={(e) => e.stopPropagation()}>
-                                                        <div className="group flex items-center px-4 py-2">
-                                                            <div className="grid place-content-center rounded">
-                                                                <div className="relative h-12 w-12">
-                                                                    <img className="h-12 w-12 rounded-full object-cover" alt="profile" src={`/assets/images/${notification.profile}`} />
+                                                        <div className="flex items-center px-4 py-2 group">
+                                                            <div className="grid rounded place-content-center">
+                                                                <div className="relative w-12 h-12">
+                                                                    <img className="object-cover w-12 h-12 rounded-full" alt="profile" src={`/assets/images/${notification.profile}`} />
                                                                     <span className="absolute bottom-0 right-[6px] block h-2 w-2 rounded-full bg-success"></span>
                                                                 </div>
                                                             </div>
@@ -376,7 +376,7 @@ const Header = () => {
                                                                 </div>
                                                                 <button
                                                                     type="button"
-                                                                    className="text-neutral-300 opacity-0 hover:text-danger group-hover:opacity-100 ltr:ml-auto rtl:mr-auto"
+                                                                    className="opacity-0 text-neutral-300 hover:text-danger group-hover:opacity-100 ltr:ml-auto rtl:mr-auto"
                                                                     onClick={() => removeNotification(notification.id)}
                                                                 >
                                                                     <IconXCircle />
@@ -388,7 +388,7 @@ const Header = () => {
                                             })}
                                             <li>
                                                 <div className="p-4">
-                                                    <button className="btn btn-primary btn-small block w-full">Read All Notifications</button>
+                                                    <button className="block w-full btn btn-primary btn-small">Read All Notifications</button>
                                                 </div>
                                             </li>
                                         </>
@@ -396,7 +396,7 @@ const Header = () => {
                                         <li onClick={(e) => e.stopPropagation()}>
                                             <button type="button" className="!grid min-h-[200px] place-content-center text-lg hover:!bg-transparent">
                                                 <div className="mx-auto mb-4 rounded-full ring-4 ring-primary/30">
-                                                    <IconInfoCircle fill={true} className="h-10 w-10 text-primary" />
+                                                    <IconInfoCircle fill={true} className="w-10 h-10 text-primary" />
                                                 </div>
                                                 No data available.
                                             </button>
@@ -405,21 +405,21 @@ const Header = () => {
                                 </ul>
                             </Dropdown>
                         </div>
-                        <div className="dropdown flex shrink-0">
+                        <div className="flex dropdown shrink-0">
                             <Dropdown
                                 offset={[0, 8]}
                                 placement={`${isRtl ? 'bottom-start' : 'bottom-end'}`}
                                 btnClassName="relative group block"
-                                button={<img className="h-9 w-9 rounded-full object-cover saturate-50 group-hover:saturate-100" src="/assets/images/user-profile.jpeg" alt="userProfile" />}
+                                button={<img className="object-cover rounded-full h-9 w-9 saturate-50 group-hover:saturate-100" src="/assets/images/user-profile.jpeg" alt="userProfile" />}
                             >
                                 <ul className="w-[230px] !py-0 font-semibold text-dark dark:text-white-dark dark:text-white-light/90">
                                     <li>
                                         <div className="flex items-center px-4 py-4">
-                                            <img className="h-10 w-10 rounded-md object-cover" src="/assets/images/user-profile.jpeg" alt="userProfile" />
+                                            <img className="object-cover w-10 h-10 rounded-md" src="/assets/images/user-profile.jpeg" alt="userProfile" />
                                             <div className="truncate ltr:pl-4 rtl:pr-4">
                                                 <h4 className="text-base">
                                                     John Doe
-                                                    <span className="rounded bg-success-light px-1 text-xs text-success ltr:ml-2 rtl:ml-2">Pro</span>
+                                                    <span className="px-1 text-xs rounded bg-success-light text-success ltr:ml-2 rtl:ml-2">Pro</span>
                                                 </h4>
                                                 <button type="button" className="text-black/60 hover:text-primary dark:text-dark-light/60 dark:hover:text-white">
                                                     johndoe@gmail.com
@@ -446,7 +446,7 @@ const Header = () => {
                                         </Link>
                                     </li>
                                     <li className="border-t border-white-light dark:border-white-light/10">
-                                        <Link href="/auth/boxed-signin" className="!py-3 text-danger">
+                                        <Link href="/signin" className="!py-3 text-danger">
                                             <IconLogout className="h-4.5 w-4.5 shrink-0 rotate-90 ltr:mr-2 rtl:ml-2" />
                                             Sign Out
                                         </Link>
@@ -459,7 +459,7 @@ const Header = () => {
 
                 {/* horizontal menu */}
                 <ul className="horizontal-menu hidden border-t border-[#ebedf2] bg-white px-6 py-1.5 font-semibold text-black dark:border-[#191e3a] dark:bg-black dark:text-white-dark lg:space-x-1.5 xl:space-x-8 rtl:space-x-reverse">
-                    <li className="menu nav-item relative">
+                    <li className="relative menu nav-item">
                         <button type="button" className="nav-link">
                             <div className="flex items-center">
                                 <IconMenuDashboard className="shrink-0" />
@@ -484,7 +484,7 @@ const Header = () => {
                             </li>
                         </ul>
                     </li>
-                    <li className="menu nav-item relative">
+                    <li className="relative menu nav-item">
                         <button type="button" className="nav-link">
                             <div className="flex items-center">
                                 <IconMenuApps className="shrink-0" />
@@ -540,7 +540,7 @@ const Header = () => {
                             </li>
                         </ul>
                     </li>
-                    <li className="menu nav-item relative">
+                    <li className="relative menu nav-item">
                         <button type="button" className="nav-link">
                             <div className="flex items-center">
                                 <IconMenuComponents className="shrink-0" />
@@ -595,7 +595,7 @@ const Header = () => {
                             </li>
                         </ul>
                     </li>
-                    <li className="menu nav-item relative">
+                    <li className="relative menu nav-item">
                         <button type="button" className="nav-link">
                             <div className="flex items-center">
                                 <IconMenuElements className="shrink-0" />
@@ -662,7 +662,7 @@ const Header = () => {
                             </li>
                         </ul>
                     </li>
-                    <li className="menu nav-item relative">
+                    <li className="relative menu nav-item">
                         <button type="button" className="nav-link">
                             <div className="flex items-center">
                                 <IconMenuDatatables className="shrink-0" />
@@ -721,7 +721,7 @@ const Header = () => {
                             </li>
                         </ul>
                     </li>
-                    <li className="menu nav-item relative">
+                    <li className="relative menu nav-item">
                         <button type="button" className="nav-link">
                             <div className="flex items-center">
                                 <IconMenuForms className="shrink-0" />
@@ -779,7 +779,7 @@ const Header = () => {
                             </li>
                         </ul>
                     </li>
-                    <li className="menu nav-item relative">
+                    <li className="relative menu nav-item">
                         <button type="button" className="nav-link">
                             <div className="flex items-center">
                                 <IconMenuPages className="shrink-0" />
@@ -876,7 +876,7 @@ const Header = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/auth/boxed-signin" target="_blank">
+                                        <Link href="/signin" target="_blank">
                                             {t('login_boxed')}
                                         </Link>
                                     </li>
@@ -944,7 +944,7 @@ const Header = () => {
                             </li>
                         </ul>
                     </li>
-                    <li className="menu nav-item relative">
+                    <li className="relative menu nav-item">
                         <button type="button" className="nav-link">
                             <div className="flex items-center">
                                 <IconMenuMore className="shrink-0" />
